@@ -74,7 +74,7 @@ var {{ .TableVar }} = &{{ .TableType }} {
 func (s {{ .Type }}) String() string {
 	res := make([]string, {{ len .Fields }})
 	{{- range $i, $f := .Fields }}
-	res[{{ $i }}] = "{{ $f.Name }}: " + reform.Inspect(s.{{ $f.Name }}, true)
+	res[{{ $i }}] = "{{ $f.Name }}: " + reform.Inspect(s.{{ $f.Name }}, false)
 	{{- end }}
 	return strings.Join(res, ", ")
 }
